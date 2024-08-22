@@ -41,6 +41,12 @@ class _NfcPageState extends NyState<NfcPage> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     // portController.text = port.toString();
+    // // Simulate NFC enabled state for UI testing
+    // Future.delayed(Duration.zero, () {
+    //   setState(() {
+    //     _nfcState = NfcState.enabled;
+    //   });
+    // });
     initUserPhone();
     NfcHce.stream.listen((command) {
       setState(() => nfcApduCommand = command);

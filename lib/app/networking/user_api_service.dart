@@ -130,4 +130,27 @@ class UserApiService extends NyApiService {
       return null;
     }
   }
+
+  Future<dynamic> buscoordinates() async {
+    try {
+      String Url = await NyStorage.read("baseurl");
+      int userid = await NyStorage.read("userid");
+      print(userid);
+      var response = await http.get(
+        Uri.parse(Url + '/vehicle/fetch_coords'),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+      );
+      if (response.statusCode == 200) {
+        print(jsonDecode(response.body));
+        return jsonDecode(response.body);
+      } else {
+        throw Exception('Failed to load user statement');
+      }
+    } catch (e) {
+      print(e);
+      return null;
+    }
+  }
 }
