@@ -102,7 +102,7 @@ class _NfcPageState extends NyState<NfcPage> with TickerProviderStateMixin {
                       },
                       child: FittedBox(
                         child: Text(
-                          apduAdded ? 'push to pay' : 'release',
+                          apduAdded ? 'release' : 'push to pay',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 26,
